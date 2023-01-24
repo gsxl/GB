@@ -49,16 +49,16 @@ git log
 ### Ветки
 Показать все ветки:
 ```
-git branch -a
+git branch
 ```
 ![git branch -a](../IMG/Screenshot_20230124_025141.png)
 
 Создать новую ветку
 ```
-git branch {имя_ветки}
+git branch -M {имя_ветки}
 ```
 
 Перейти в иную ветку
 ```
-git checkout alpha 
+git checkout {ИМЯ_ВЕТКИ} 
 ```
