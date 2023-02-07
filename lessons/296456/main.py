@@ -1,6 +1,3 @@
-from random import randint
-from math import sqrt
-
 test = -1
 
 def check_int(n):
@@ -10,71 +7,68 @@ def check_int(n):
     except ValueError:
         return ''
 
-print('1  - Найти кубы чисел от 1 до N.')
-print('2  - Подсчитать сумму цифр в числе.')
-print('3  - Написать программу вычисления произведения чисел от 1 до N.')
-print('4  - Показать кубы чисел, заканчивающихся на четную цифру.')
-print('0  - Выход.')
+less = [
+'1  - Найти кубы чисел от 1 до N.',
+'2  - Подсчитать сумму цифр в числе.',
+'3  - Написать программу вычисления произведения чисел от 1 до N.',
+'4  - Показать кубы чисел, заканчивающихся на четную цифру.',
+'0  - Выход.'
+]
+
+for i in range(len(less)):
+    print(less[i])
 print('')
 
 def in1():
-    print('1  - Дано число обозначающее день недели. Выяснить является номер дня недели выходным.')
-    in1 = input("Веедите номер дня недели, от 1 до 7 включительно: ")
-    if (check_int(in1) != "" and len(in1) ==1 and int(in1)> 0 and int(in1)< 8):
-        weekday = ['бездельник,','повторник,','бреда,','чертегдерг,','расслабильница,','клуббота,','высплюсенье,']
-        if (int(in1) >= 6):
-            w = "и это выходной ;)"
-        else:
-            w = "но боюсь, что это не выходной :("
-        print ("Выбран", in1, "день недели, это:", weekday[int(in1)-1], w, sep=" ")
+    print(less[0])
+    n = input("Введите число кубических чисел: ")
+    if (check_int(n) != ""):
+        n= int(n)
+        counter = 1
+        while counter <= n:
+            print(counter ** 3)
+            counter += 1
     else:
-        print ("На неделе у Вас что-то пошло не так!")
+        print ("Введено не число")
 
 def in2():
-    print('2  - По двум заданным числам проверять является ли одно квадратом другого.')
-    in2 = input("Веедите через пробел 2 числа: ")
-    in2 = in2.split()
-    if (len(in2) >1 and check_int(in2[0]) !="" and check_int(in2[1]) !="" ):
-        in2[0] = int(in2[0])
-        in2[1] = int(in2[1])
-        if (in2[0] / in2[1] == in2[1] or in2[1] / in2[0] == in2[0]):
-            if(in2[0] / in2[1] == in2[1]):
-                print(in2[0], "является квадратом", in2[1])
-            else:
-                print(in2[1], "является квадратом", in2[0])
-        else:
-            print("Оба числа не являются квадратом друг друга.")
+    print(less[1])
+    n=input("Введите число: ")
+    summ_n = 0
+    if (check_int(n) !=""):
+        for i in range(len(n)):
+                summ_n = summ_n + int(str(n[i]))
+        print ("Сумма числе: ", summ_n)
     else:
-        print ("Вы ввели не 2 числа, или введены не числа")
+        print ("Введено не число")
 
 def in3():
-    print('3  - Задать номер четверти, показать диапазоны для возможных координат.')
-    in3 = input("Введите номер четверти: ")
-    xy = ['x > 0, y > 0', 'x < 0, y > 0', 'x < 0, y < 0', 'x > 0, y < 0']
-    if (check_int(in3) != ""):
-        print("Координат(ы) в области ", xy[int(in3)-1])
+    print(less[2])
+    n = input("Введите число: ")
+    if (check_int(n) != ""):
+        summ_n = 0
+        for i in range(int(n)):
+            summ_n = summ_n + (i+1)
+        print ("произведение чисел: ", summ_n)
     else:
-        print ("Введено не число!")
+        print("Введено не число")
 
 def in4():
-    print('4  - Найти расстояние между точками в пространстве 2D/3D.')
-    min = -10
-    max = 10
-
-    t1x = randint(min, max)
-    t1y = randint(min, max)
-    t1z = randint(min, max)
-
-    t2x = randint(min, max)
-    t2y = randint(min, max)
-    t2z = randint(min, max)
-
-    print ("Точка 1:", "x:", t1x, "y:",t1y, "z:",t1z, sep=" ")
-    print ("Точка 2:", "x:", t2x, "y:", t2y, "z:", t2z, sep=" ")
-
-    d = (t2x-t1x)**2+(t2y-t1y)**2+(t2z-t1z)**2
-
-    print("Расстояние между точками: ", sqrt(d))
+    print(less[3])
+    n = input("Введите число кубических чисел: ")
+    if (check_int(n) != ""):
+        n = int(n)
+        counter = 1
+        countercub = 1
+        while countercub <= n:
+            if ((counter ** 3) % 2) == 0:
+                print(counter ** 3)
+                countercub += 1
+                counter += 1
+            else:
+                counter += 1
+    else:
+        print ("Введено не число")
 
 while test == -1:
     print()
